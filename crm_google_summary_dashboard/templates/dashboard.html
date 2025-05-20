@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRM Summary Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+  <h2>CRM Summary Dashboard</h2>
+  <a href="/" class="btn btn-secondary mb-4">Back to CRM</a>
+
+  <div class="row text-center mb-4">
+    <div class="col-md-6">
+      <div class="card p-3 shadow-sm">
+        <h4 class="text-muted">Leads</h4>
+        <h2>{{ total }}</h2>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 shadow-sm">
+        <h4 class="text-muted">Leads Closed</h4>
+        <h2>{{ closed }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h5 class="text-center">Closed vs Open Leads</h5>
+      <canvas id="leadPieChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  const pieLabels = {{ pie_data.labels | tojson }};
+  const pieValues = {{ pie_data.values | tojson }};
+
+  new Chart(document.getElementById("leadPieChart"), {
+    type: "pie",
+    data: {
+      labels: pieLabels,
+      datasets: [{
+        label: "Leads Status",
+        data: pieValues
+      }]
+    }
+  });
+</script>
+</body>
+</html>

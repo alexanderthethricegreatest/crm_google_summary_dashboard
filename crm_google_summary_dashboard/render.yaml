@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: crm-google-summary
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    plan: free
