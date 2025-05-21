@@ -4,7 +4,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
-SHEET_NAME = "CRM Sheet"
+SHEET_NAME = "Prospects2"
 
 FIELDS = [
     "Name", "Phone", "Email", "Address", "City", "State", "Zip", "Country",
