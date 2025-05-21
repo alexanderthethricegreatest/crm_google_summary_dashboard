@@ -34,8 +34,8 @@
 </div>
 
 <script>
-  const pieLabels = {{ pie_data.labels | tojson }};
-  const pieValues = {{ pie_data.values | tojson }};
+  const pieLabels = {{ pie_data["labels"] | tojson }};
+  const pieValues = {{ pie_data["values"] | tojson }};
 
   new Chart(document.getElementById("leadPieChart"), {
     type: "pie",
