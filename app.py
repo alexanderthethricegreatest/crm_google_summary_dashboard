@@ -53,7 +53,7 @@ def dashboard():
 
     pie_data = {
         "labels": ["Closed", "Open"],
-        "values": [closed_leads, open_leads]
+        "values": [int(closed_leads), int(open_leads)]
     }
 
     return render_template("dashboard.html", total=total_leads, closed=closed_leads, pie_data=pie_data)
